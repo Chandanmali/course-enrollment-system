@@ -1,0 +1,599 @@
+
+/* =========================
+   1. Global Theme
+========================= */
+
+:root {
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #172033;
+  background: #f5f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --text-main: #172033;
+  --text-muted: #596579;
+  --border: #dce2ec;
+  --surface: #ffffff;
+  --background: #f5f7fb;
+  --danger: #b42318;
+  --success: #067647;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-main);
+  background:
+    radial-gradient(ellipse at top left, #e9edff 0%, transparent 38%),
+    var(--background);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-size: clamp(21px, 2.5vw, 26px);
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+/* =========================
+   2. Authentication Pages
+========================= */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 18px;
+  background:
+    radial-gradient(ellipse at top left, #dfe5ff 0%, transparent 50%),
+    linear-gradient(135deg, #f5f7ff, #f8fafc);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 34px;
+  border: 1px solid #e0e5f0;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow:
+    0 20px 55px rgba(31, 41, 75, 0.08),
+    0 3px 10px rgba(31, 41, 75, 0.03);
+}
+
+.auth-card h1 {
+  margin: 0 0 10px;
+  font-size: clamp(25px, 4vw, 30px);
+  font-weight: 750;
+  letter-spacing: -0.8px;
+  color: #141b2d;
+}
+
+.auth-card > p {
+  margin: 0 0 24px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.auth-card label {
+  display: block;
+  margin: 18px 0 7px;
+  color: #283449;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.auth-card input:not([type="checkbox"]),
+.auth-card input:not([type="radio"]):not([type="checkbox"]) {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid #cbd3e1;
+  border-radius: 9px;
+  outline: none;
+  color: #172033;
+  background: #ffffff;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.auth-card input::placeholder,
+.course-form textarea::placeholder {
+  color: #778399;
+  opacity: 1;
+}
+
+.auth-card input:focus,
+.course-form textarea:focus,
+.course-form select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.13);
+}
+
+.auth-card button {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 24px;
+  padding: 12px 16px;
+  border: 1px solid var(--primary);
+  border-radius: 9px;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-card button:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.auth-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-card .auth-footer {
+  margin: 22px 0 0;
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 14px;
+}
+
+.auth-card a {
+  color: #4338ca;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-card a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   3. Feedback Messages
+========================= */
+
+.error-message,
+.success-message {
+  margin: 16px 0;
+  padding: 13px 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.6;
+}
+
+.error-message {
+  color: #991b1b;
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+.success-message {
+  color: #05603a;
+  background: #ecfdf3;
+  border-color: #a6f4c5;
+}
+
+/* =========================
+   4. Dashboard Layout
+========================= */
+
+.dashboard-page {
+  width: 100%;
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 34px 28px 56px;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding: 26px 28px;
+  border: 1px solid #e0e5f0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 5px 18px rgba(24, 39, 75, 0.04);
+}
+
+.dashboard-header h1 {
+  margin: 0 0 6px;
+  font-size: clamp(25px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.9px;
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.dashboard-page section {
+  margin-top: 36px;
+}
+
+/* =========================
+   5. Dashboard Statistic Cards
+========================= */
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid #e0e5f0;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 5px 18px rgba(24, 39, 75, 0.045);
+  overflow-wrap: anywhere;
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.course-card:hover {
+  border-color: #cbd3f8;
+  box-shadow: 0 10px 28px rgba(24, 39, 75, 0.08);
+}
+
+.course-card h3 {
+  margin: 0 0 12px;
+  color: #344054;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.course-card p {
+  margin: 8px 0;
+  color: #475467;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.course-card p strong {
+  color: #263349;
+  font-weight: 700;
+}
+
+/* Large numbers in the first three statistic cards */
+.dashboard-page > .course-grid:first-of-type .course-card p {
+  margin: 0;
+  color: #3730a3;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* =========================
+   6. Buttons
+========================= */
+
+.course-card button,
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  width: auto;
+  margin: 10px 6px 0 0;
+  padding: 10px 15px;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.course-card button:hover,
+.logout-button:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.16);
+}
+
+.course-card button:active,
+.logout-button:active {
+  transform: translateY(1px);
+}
+
+.course-card button:disabled {
+  background: #98a2b3;
+  border-color: #98a2b3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.logout-button {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 10px 18px;
+  background: #344054;
+  border-color: #344054;
+}
+
+.logout-button:hover {
+  background: #1d2939;
+  border-color: #1d2939;
+}
+
+/* =========================
+   7. Course Form
+========================= */
+
+.course-form {
+  width: 100%;
+  max-width: 760px;
+  margin: 20px 0;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.course-form label {
+  display: block;
+  margin: 18px 0 7px;
+  color: #263349;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.course-form input:not([type="checkbox"]),
+.course-form textarea,
+.course-form select {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  margin: 0 0 16px;
+  padding: 11px 13px;
+  border: 1px solid #cbd3e1;
+  border-radius: 9px;
+  outline: none;
+  color: #172033;
+  background-color: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.course-form textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.course-form select {
+  cursor: pointer;
+}
+
+.course-form select option {
+  color: #172033;
+  background: #ffffff;
+}
+
+.course-form input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin: 0 8px 0 0;
+  accent-color: var(--primary);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.course-form label:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 18px 0;
+  color: #263349;
+  cursor: pointer;
+}
+
+.course-form button {
+  width: auto;
+  min-width: 145px;
+  min-height: 44px;
+  margin: 10px 10px 0 0;
+  padding: 11px 18px;
+}
+
+.course-form button[type="button"] {
+  background: #ffffff;
+  color: #344054;
+  border: 1px solid #cbd3e1;
+}
+
+.course-form button[type="button"]:hover {
+  background: #f2f4f7;
+  border-color: #98a2b3;
+  box-shadow: none;
+}
+
+.course-form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================
+   8. Users and Courses
+========================= */
+
+.dashboard-page section > p {
+  color: var(--text-muted);
+}
+
+.dashboard-page section > .course-grid .course-card h3 {
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.dashboard-page section > .course-grid .course-card p {
+  overflow-wrap: anywhere;
+}
+
+.dashboard-page section > .course-grid .course-card p strong {
+  color: #263349;
+}
+
+/* =========================
+   9. Responsive Design
+========================= */
+
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding: 22px 16px 40px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    padding: 22px;
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 14px;
+  }
+
+  .course-card {
+    padding: 20px;
+  }
+
+  .course-form {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-page {
+    padding: 14px 12px 32px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding: 20px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 25px;
+  }
+
+  .dashboard-page section {
+    margin-top: 28px;
+  }
+
+  .course-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .course-card {
+    padding: 18px;
+  }
+
+  .course-form {
+    padding: 20px;
+  }
+
+  .auth-card {
+    padding: 25px 21px;
+    border-radius: 14px;
+  }
+
+  .auth-card h1 {
+    font-size: 25px;
+  }
+
+  .course-form button {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .course-card button {
+    max-width: 100%;
+  }
+}
+
+/* =========================
+   10. Reduced Motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
